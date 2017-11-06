@@ -9,7 +9,7 @@ $(document).ready(function () {
 });
 person.click(function (event) {
     var height = $(this).children('.person_front').height();
-    var target = $('#'+event.target.id)
+    var target = $('#'+event.target.id);
     target.flip();
     target.toggleClass('eliminated');
 
