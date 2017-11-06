@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/room.css')
+    .persons
+        if allPerson
+            each person in allPerson
+                div.person(id= "person"+index)
+                    .person_front
+                        img(src=person.img)
+                        p.person_name  #{person.name}
+                        if person.gender === "n/a"
+                            p #[span.person_info Gender :] other
+                        else
+                            p #[span.person_info Gender :] #{person.gender}
+                        - var height = person.height
+                        if height < 160
+                            p #[span.person_info Height :] Small
+                        if height >= 160
+                            p #[span.person_info Height :] Tall
+                        p #[span.person_info Eye color :] #{person.eye_color}
+                        if person.hair_color !== "n/a"
+                            p #[span.person_info Hair Color :] #{person.hair_color}
+                        else
+                            p No Hair
+                        p #[span.person_info Skin color :] #{person.skin_color}
+                    .person_back
+                        p.person_name  #{person.name}
+        else
+            p Error : Star wars heros occupied.
+
+block script
+    script(src="/socket.io/socket.io.js")
+    script(src="/javascripts/jquery.flip.min.js")
+    script(src="/javascripts/room_front.js")

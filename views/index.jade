@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+
+  a(class='button')#CreateRoomButton Nouvelle partie
+
+  .new_room
+    form(action='/create_room', method='post')
+      .input
+        span.label Room Name
+        input(type='text', name='Room name')
+        span.label Username
+        input(type='text', name='Username')
+      .actions
+        input(type='submit', value='Create')
+
+block script
+
+  script(src="/javascripts/new_room.js")

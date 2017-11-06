@@ -1,0 +1,92 @@
+.person {
+    flex-direction: column;
+    width: 32%;
+    border: solid 1px black;
+    margin: 0 5px 5px 0;
+}
+.person.eliminated {
+    text-decoration : line-through;
+    color: #FFF;
+}
+.person img {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+.person {
+    color: #FFF;
+    position: relative;
+    border-radius: 2px;
+    min-height: 206px;
+    perspective: 413.5px;
+    transform-style: preserve-3d;
+}
+
+.person_front {
+    background: url("../images/starWars.gif") center;
+    background-size: 100% 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+.person_front:before {
+    z-index:-1;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+}
+.person_back {
+    background-color: rgba(0,0,0,1);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    transform: rotateY(-180deg);
+    transition: all 0.5s ease-out;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+.person:hover {
+    box-shadow: 3px 3px 5px 6px #ccc;
+    cursor: pointer;
+}
+.persons {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.person_front p {
+    pointer-events: none;
+}
+.person_name {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    font-weight: 900;
+    margin: 0;
+    padding: 10px 0;
+}
+.person_info {
+    font-weight: bold;
+}
+.person_front {
+    text-align: center;
+}
+
